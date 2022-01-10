@@ -24,10 +24,10 @@ Note the use of this property in the constructor of https://github.com/h2databas
 
 [Automated builds](https://hub.docker.com/r/oscarfonts/h2/) on [docker registry](https://registry.hub.docker.com/):
 
-* [`2.0.204`, `2.0.204` (*2.0.204/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/2.0.204/Dockerfile)
-* [`1.4.199`, `1.4.199` (*1.4.199/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/1.4.199/Dockerfile)
-* [`alpine` (*alpine/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/alpine/Dockerfile)
+* [`latest`, `2.0.204` (*2.0.204/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/2.0.204/Dockerfile)
+* [`1.4.199` (*1.4.199/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/1.4.199/Dockerfile)
 * [`1.1.119` (*1.1.119/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/1.1.119/Dockerfile)
+* [`alpine` (*alpine/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/alpine/Dockerfile)
 * [`geodb` (*geodb/Dockerfile*)](https://github.com/oscarfonts/docker-h2/blob/master/geodb/Dockerfile)
 
 

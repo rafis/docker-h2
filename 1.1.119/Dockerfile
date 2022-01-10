@@ -1,10 +1,10 @@
-FROM openjdk:10
+FROM openjdk:11
 
 # A merge of:
 #  https://github.com/zhilvis/docker-h2
 #  https://github.com/zilvinasu/h2-dockerfile
 
-MAINTAINER Oscar Fonts <oscar.fonts@geomati.co>
+LABEL maintainer="oscar.fonts@geomatico.es"
 
 ENV DOWNLOAD https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/h2database/h2-2009-09-26.zip
 ENV DATA_DIR /opt/h2-data

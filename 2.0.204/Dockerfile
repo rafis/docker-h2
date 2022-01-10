@@ -5,7 +5,7 @@ FROM openjdk:11
 #  https://github.com/zhilvis/docker-h2
 #  https://github.com/zilvinasu/h2-dockerfile
 
-MAINTAINER Oscar Fonts <oscar.fonts@geomati.co>
+LABEL maintainer="oscar.fonts@geomatico.es"
 
 ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.0.204/h2-2021-12-21.zip
 ENV DATA_DIR /opt/h2-data
