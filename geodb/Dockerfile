@@ -3,7 +3,7 @@ FROM oscarfonts/h2:1.1.119
 # Adding dependencies from:
 #  https://github.com/jdeolive/geodb/tree/0.7-RC2
 
-MAINTAINER Oscar Fonts <oscar.fonts@geomati.co>
+LABEL maintainer="oscar.fonts@geomatico.es"
 
 RUN cd /opt/h2/bin \
     && wget http://download.osgeo.org/webdav/geotools/org/opengeo/geodb/0.7-RC2/geodb-0.7-RC2.jar \
