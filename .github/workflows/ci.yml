@@ -1,0 +1,64 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  docker:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        h2-version:
+          - "1.1.119"
+          - "1.4.199"
+          - "2.0.204"
+          - "2.1.210"
+          - "alpine"
+          - "geodb"
+    steps:
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Generate tags
+        id: gen_tags
+        run: |
+          IMAGE="githubrafis/h2"
+          
+          if [[ '${{ matrix.h2-version }}' == '2.1.210' ]]; then
+            TAGS='"'${IMAGE}':latest","'${IMAGE}':'${{ matrix.h2-version }}'"'
+          else
+            TAGS='"'${IMAGE}':'${{ matrix.h2-version }}'"'
+          fi
+          
+          echo '::set-output name=tags::'$TAGS
+
+      - name: Debug tags
+        run:
+          echo ${{ steps.gen_tags.outputs.tags }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ${{ matrix.h2-version }}
+          push: true
+          tags: ${{ steps.gen_tags.outputs.tags }}
+          platforms: linux/amd64,linux/arm64/v8
