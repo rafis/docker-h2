@@ -59,3 +59,9 @@ See the logs while running:
 ```
 docker logs -f MyH2Instance
 ```
+
+Create an empty test database:
+
+```
+docker exec -it MyH2Instance touch /opt/h2-data/test.mv.db
+```
